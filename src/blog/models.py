@@ -25,7 +25,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name="comments")
+    post = models.ForeignKey("blog.Post", related_name="comments")
     author = models.CharField(max_length=100)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now())
@@ -36,7 +36,7 @@ class Comment(models.Model):
         self.save()
 
     def get_absolute_url(self):
-        return reverse('post_list')
+        return reverse("post_list")
 
     def __str__(self):
         return "{0} - {1} : {2}".format(self.text, self.author, self.created_date)
