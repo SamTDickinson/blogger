@@ -17,3 +17,8 @@ source venv/bin/actiavte
 or 
 source venv/Scripts/activate
 ```
+
+## Code formatting
+```text
+black .
+```
