@@ -12,8 +12,8 @@ from django.views.generic import (
     DeleteView,
 )
 
-from models import Post, Comment
-from forms import PostForm, CommentForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 
 
 class AboutView(TemplateView):
@@ -30,7 +30,7 @@ class PostListView(ListView):
 
 
 class PostViewDetail(DetailView):
-    model = DetailView
+    model = Post
 
 
 class PostViewCreate(LoginRequiredMixin, CreateView):
@@ -48,9 +48,6 @@ class PostViewUpdate(LoginRequiredMixin, UpdateView):
 
 
 class PostViewDelete(LoginRequiredMixin, DeleteView):
-    login_url = "/login/"
-    redirect_field_name = "blog/post_detail.html"
-    form_class = PostForm
     model = Post
     success_url = reverse_lazy("post_list")
 
@@ -58,7 +55,7 @@ class PostViewDelete(LoginRequiredMixin, DeleteView):
 class DraftListView(LoginRequiredMixin, ListView):
     login_url = "/login/"
     redirect_field_name = "blog/post_list.html"
-    form_class = PostForm
+    # form_class = PostForm
     model = Post
 
     def get_queryset(self):

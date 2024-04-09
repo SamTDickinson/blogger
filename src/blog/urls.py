@@ -1,5 +1,5 @@
 from django.urls import re_path
-from . import views
+from blog import views
 
 urlpatterns = [
     re_path(r"^$", views.PostListView.as_view(), name="post_list"),
@@ -13,7 +13,7 @@ urlpatterns = [
         views.PostViewDelete.as_view(),
         name="post_delete",
     ),
-    re_path(r"^drafts/$", views.DraftListView.as_view(), name="post_draft_list"),
+    re_path(r'^drafts/$', views.DraftListView.as_view(), name="post_draft_list"),
     re_path(
         r"^post/(?P<pk>\d+)/comment/$",
         views.add_comment_to_post,

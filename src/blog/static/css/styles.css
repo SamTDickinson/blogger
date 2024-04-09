@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.centrestage {
+    margin-left: auto;
+    margin-right: auto;
+}
